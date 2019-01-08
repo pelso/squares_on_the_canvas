@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="description" content="squares_on_the_canvas">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>JS Bin</title>
+</head>
+<body>
+<canvas id="myCanvas" width="450" height="300" style="border: 1px solid black"></canvas>
+<script>
+	
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext('2d');
+var forTimes = 10;
+
+function drawRect() {
+  var xPosition = Math.random() * 400;
+  var yPosition = Math.random() * 250;
+  context.fillRect(xPosition, yPosition, 50, 50);
+}
+
+context.fillStyle = 'yellow';
+context.fillRect(0,0,450,300);
+
+for (var i = 1; i < 300; i++) {
+  
+  if (i % 2 !== 0) { 
+  var fillColor = 'rgba(255,0,0,' + 1 * Math.random() + ')';
+  context.fillStyle = fillColor;
+  drawRect();
+  
+  } else if ((i % 3 === 0)){
+  var fillColor = 'rgba(0,255,0,' + 1 * Math.random() + ')';
+  context.fillStyle = fillColor;
+  drawRect();
+  } else {
+  var fillColor = 'rgba(0,0,255,' + 1 * Math.random() + ')';
+  context.fillStyle = fillColor;
+  drawRect();
+  }
+}
+</script>
+</body>
+</html>
